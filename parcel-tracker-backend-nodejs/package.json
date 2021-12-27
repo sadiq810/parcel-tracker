@@ -1,0 +1,39 @@
+{
+  "name": "parcel-tricer",
+  "version": "1.0.0",
+  "description": "Backend for parcel tracker app",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js --exec babel-node",
+    "start": "babel-node server.js",
+    "test": "cross-env NODE_ENV=test jest --testTimeout=10000"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
+    "babel-jest": "^27.4.5",
+    "cross-env": "^7.0.3",
+    "jest": "^27.4.5",
+    "nodemon": "^2.0.15",
+    "regenerator-runtime": "^0.13.9",
+    "supertest": "^6.1.6"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.16.4",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "uuid": "^8.3.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  }
+}

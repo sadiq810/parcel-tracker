@@ -1,0 +1,451 @@
+{
+	"info": {
+		"_postman_id": "af09787d-2783-49cd-9df8-ac07a71cd7ed",
+		"name": "Parcel Traker APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login Sender",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							" var jsonData = pm.response.json();\r",
+							"pm.environment.set(\"token\", jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"sender@gmail.com\",\r\n    \"password\":\"admin123\",\r\n    \"type\":\"sender\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							" var jsonData = pm.response.json();\r",
+							"pm.environment.set(\"token\", jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/logout",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Confirm Parcel Delivery(sender)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							" var jsonData = pm.response.json();\r",
+							"pm.environment.set(\"token\", jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"parcel_id\":\"1\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/confirm-parcel",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"confirm-parcel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Parcel Delivery(sender)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							" var jsonData = pm.response.json();\r",
+							"pm.environment.set(\"token\", jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"parcel_id\":\"1\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/delete-parcel",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"delete-parcel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Biker",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							" var jsonData = pm.response.json();\r",
+							"pm.environment.set(\"token\", jsonData.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"biker@gmail.com\",\r\n    \"password\":\"admin123\",\r\n    \"type\":\"biker\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url}}/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Parcels",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer  {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/parcels",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"parcels"
+					],
+					"query": [
+						{
+							"key": "filter",
+							"value": "picked",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dashborad Stats",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer  {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/sender-stats",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"sender-stats"
+					],
+					"query": [
+						{
+							"key": "filter",
+							"value": "picked",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Parcel By ID for Editing",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer  {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/parcel/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"parcel",
+						"1"
+					],
+					"query": [
+						{
+							"key": "filter",
+							"value": "picked",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Parcel",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Test Parcel Two\",\r\n    \"detail\": \"Some details for the parcel\",\r\n    \"pickup_address\": \"Here is some address for picking up\",\r\n    \"dropoff_address\": \"Here is some address\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/create-parcel",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"create-parcel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Parcel",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Test Parcel Two updated\",\r\n    \"detail\": \"Some details for the parcel\",\r\n    \"pickup_address\": \"Here is some address for picking up\",\r\n    \"dropoff_address\": \"Here is some address\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/update-parcel/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"update-parcel",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pickup Parcel",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"parcel_id\": \"1\",\r\n    \"pickup_date\":\"2021-12-09 12:22 PM\",\r\n    \"delivery_date\":\"2021-12-09 12:22 PM\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/pickup-parcel",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"pickup-parcel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Canel Parcel By Biker",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/cancel-parcel/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"cancel-parcel",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
